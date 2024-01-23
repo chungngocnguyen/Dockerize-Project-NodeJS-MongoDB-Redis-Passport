@@ -1,0 +1,31 @@
+version: "3.2"
+services:
+  app:
+    image: dockerfile/node-mongo-redis:v1
+    ports: 
+      - $PORT:$PORT
+    environment:
+      - DB_HOST=$DB_HOST
+      - DB_PORT=$DB_PORT
+      - DB_NAME=$DB_NAME
+      - REDIS_HOST=$REDIS_HOST
+      - REDIS_PORT=$REDIS_PORT
+    volumes:
+      - ./:/app
+    depends_on:
+      - redis
+      - db
+    restart: unless-stopped
+  db:
+    image: mongo:4.4
+    volumes:
+      - .docker/data/mongo:/data/db
+    restart: unless-stopped
+  redis:
+    image: redis:5-alpine
+    volumes:
+      - .docker/data/redis:/data
+    restart: unless-stopped
+
+
+
