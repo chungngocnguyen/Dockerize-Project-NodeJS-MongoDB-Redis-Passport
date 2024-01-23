@@ -3,9 +3,9 @@
 Trang đăng nhập, đăng kí
 Bên trong có thêm mới sản phẩm, liệt kê danh sách sản phẩm ứng với user đăng nhập.
 
-Project này có kiến trúc :
+## Project này có kiến trúc :
 
-## Có 2 model là User và Product
+Có 2 model là User và Product
 Dùng MongoDB để lưu trữ dữ liệu
 Dùng Redis để lưu trữ session của user đăng nhập
 Để xử lý Login/Logout ta dùng PassportJS
